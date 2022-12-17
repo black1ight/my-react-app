@@ -1,0 +1,7 @@
+
+.headerTop {
+    grid-area: headerTop;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
