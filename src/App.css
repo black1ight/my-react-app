@@ -1,4 +1,6 @@
-ol, ul, li {
+ol,
+ul,
+li {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -19,11 +21,17 @@ a {
   position: relative;
   grid-template-rows: 100px 1fr;
   grid-template-columns: 3fr 9fr;
-  grid-template-areas: 
-  "headerTop headerTop"
-  "sidebar profile";
+  grid-template-areas:
+    "headerTop headerTop"
+    "sidebar profile";
   grid-gap: 10px;
   height: 100vh;
-  padding: 10px 0;
+  margin: 10px 0;
 }
 
+.app-wrapper-content {
+  grid-area: profile;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 5px;
+}

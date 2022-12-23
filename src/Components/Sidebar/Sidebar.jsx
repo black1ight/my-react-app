@@ -1,20 +1,21 @@
 import React from 'react';
 import SidebarStyle from './Sidebar.module.css';
+import {NavLink} from 'react-router-dom';
 
 
 const Sidebar = () => {
     return <ul className={SidebarStyle.sidebarList}>
-        <li className="sidebar-item">
-            <a className="sidebar-link" href="/#">Home</a>
+        <li className={SidebarStyle.sidebarItem}>
+            <NavLink to='/profile' className={SidebarStyle.link}>Home</NavLink>
         </li>
-        <li className="sidebar-item">
-            <a className="sidebar-link" href="/#">News Feed</a>
+        <li className={SidebarStyle.sidebarItem}>
+            <NavLink className={SidebarStyle.link}>News Feed</NavLink>
         </li>
-        <li className="sidebar-item">
-            <a className="sidebar-link" href="/#">Messages</a>
+        <li className={SidebarStyle.sidebarItem}>
+            <NavLink to='/messages' className={SidebarStyle.link}>Messages</NavLink>
         </li>
-        <li className="sidebar-item">
-            <a className="sidebar-link" href="/#">Settings</a>
+        <li className={SidebarStyle.sidebarItem}>
+            <NavLink className={SidebarStyle.link}>Settings</NavLink>
         </li>
     </ul>
 }

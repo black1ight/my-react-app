@@ -1,6 +1,14 @@
 .sidebarList {
     grid-area: sidebar;
-    padding: 20px;
-    background-color: #fff;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
   }
+
+.sidebarItem {
+  margin: 0 0 30px 0;
+}
+
+.link {
+  color:#fff;
+}
