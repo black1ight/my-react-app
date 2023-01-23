@@ -18,6 +18,7 @@
 
 .item p {
     flex: 1 0 auto;
+    max-width: 80%;
     background-color: #fff;
     margin: 0 20px;
     border-radius: 5px;
@@ -57,4 +58,11 @@
 .remove:hover::before,
 .remove:hover::after {
     background-color: #222;
+}
+
+span {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 12px;
 }

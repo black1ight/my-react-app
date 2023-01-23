@@ -4,10 +4,13 @@ import './App.css';
 import Profile from './Components/Profile/Profile';
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
-import Messages from './Components/Messages/Messages';
+import Dialogs from './Components/Dialogs/Dialogs';
+import Settings from './Components/Settings/Settings';
+import News from './Components/News/News';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function App() {
+function App(props) {
+  
   return (
     <BrowserRouter>
       <div className="App">
@@ -17,8 +20,10 @@ function App() {
             <Sidebar />
             <div className='app-wrapper-content'>
               <Routes>
-                <Route path='/profile' element={<Profile />} />
-                <Route path='/messages' element={<Messages />} />
+                <Route path='/profile' element={<Profile {...props.state.profilePage} dispatch={props.dispatch}/>} />
+                <Route path='/Dialogs/*' element={<Dialogs {...props.state.dialogsPage}/>} />
+                <Route path='/settings' element={<Settings />} />
+                <Route path='/news' element={<News />} />
               </Routes>
             </div>
           </header>

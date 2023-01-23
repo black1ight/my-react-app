@@ -2,20 +2,21 @@ import React from 'react';
 import SidebarStyle from './Sidebar.module.css';
 import {NavLink} from 'react-router-dom';
 
+const setActive = ({isActive}) => isActive ? SidebarStyle.activeLink : 'white';
 
 const Sidebar = () => {
-    return <ul className={SidebarStyle.sidebarList}>
-        <li className={SidebarStyle.sidebarItem}>
-            <NavLink to='/profile' className={SidebarStyle.link}>Home</NavLink>
+    return <ul className={SidebarStyle.List}>
+        <li className={SidebarStyle.Item}>
+            <NavLink to='/profile' className={setActive}>Home</NavLink>
         </li>
-        <li className={SidebarStyle.sidebarItem}>
-            <NavLink className={SidebarStyle.link}>News Feed</NavLink>
+        <li className={SidebarStyle.Item}>
+            <NavLink to='/news' className={setActive}>News</NavLink>
         </li>
-        <li className={SidebarStyle.sidebarItem}>
-            <NavLink to='/messages' className={SidebarStyle.link}>Messages</NavLink>
+        <li className={SidebarStyle.Item}>
+            <NavLink to='/dialogs' className={setActive}>Dialogs</NavLink>
         </li>
-        <li className={SidebarStyle.sidebarItem}>
-            <NavLink className={SidebarStyle.link}>Settings</NavLink>
+        <li className={SidebarStyle.Item}>
+            <NavLink to='/settings' className={setActive}>Settings</NavLink>
         </li>
     </ul>
 }

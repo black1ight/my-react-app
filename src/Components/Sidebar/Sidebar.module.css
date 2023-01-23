@@ -1,14 +1,18 @@
-.sidebarList {
+.List {
     grid-area: sidebar;
     padding: 30px;
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 5px;
   }
 
-.sidebarItem {
+.Item {
   margin: 0 0 30px 0;
+  color: #fff;
 }
 
-.link {
-  color:#fff;
+.activeLink {
+  text-shadow: 0px 0px 8px rgba(206,206,206,0.8);
+  color: aqua;
+  letter-spacing: 3px;
+  transition: letter-spacing .2s ease-in-out;
 }

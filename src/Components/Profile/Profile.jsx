@@ -4,10 +4,10 @@ import profileImg from '../../img/profile.jpg';
 import MyPosts from './MyPosts/MyPosts';
 // import Post from './MyPosts/Posts/Post';
 
-const Profile = () => {
+const Profile = (props) => {
     return <div className={ProfileStyle.profile}>
         <img src={profileImg} alt="" />
-        <MyPosts />
+        <MyPosts posts={props.posts} addPost={props.addPost} dispatch={props.dispatch}/>
         
     </div>
 }
