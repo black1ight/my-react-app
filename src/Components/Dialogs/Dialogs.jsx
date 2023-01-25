@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Style from './Dialogs.module.css';
+import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/state";
 
 const setActive = ({ isActive }) => isActive ? Style.activeLink : 'white';
 
@@ -43,7 +44,7 @@ const Dialogs = (props) => {
     let dialogsElements = props.dialogs.map(d => <DialogsItem name={d.name} id={d.id} />)
 
     let messagesElements = props.messages.map(m => {
-        if(m.author === 'you') {
+        if (m.author === 'you') {
             return (
                 <MyMessage message={m.message} id={m.id} author={m.author} />
             )
@@ -52,6 +53,21 @@ const Dialogs = (props) => {
         )
     })
 
+    let newMessageElement = React.createRef()
+
+    let sendMessage = () => {
+
+        props.dispatch(sendMessageCreator())
+    }
+
+    let onMessageChange = () => {
+
+        let newBody = newMessageElement.current.value
+        let action = updateNewMessageBodyCreator(newBody)
+        props.dispatch(action)
+    }
+
+
     return (
         <div className={Style.wrapper}>
             <div className={Style.dialogs}>
@@ -59,10 +75,14 @@ const Dialogs = (props) => {
                     {dialogsElements}
                 </ul>
             </div>
-            <div className={Style.message}>
-                <ul>
+            <div className={Style.messageCol}>
+                <ul className={Style.message}>
                     {messagesElements}
                 </ul>
+                <div className={Style.form}>
+                    <textarea onChange={onMessageChange} value={props.newMessageBody} className={Style.textArea} ref={newMessageElement}/>
+                    <button onClick={sendMessage} className={Style.button}>send</button>
+                </div>
             </div>
         </div>
     )
