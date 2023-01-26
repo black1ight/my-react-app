@@ -57,10 +57,16 @@
 }
 
 .button {
+    cursor: pointer;
     padding: 5px 20px;
     margin-top: 5px;
     border: 0;
     border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
 }
 
 .item {
@@ -73,12 +79,16 @@
     padding: 10px;
 }
 
+.item:hover {
+  text-shadow: 0px 0px 4px rgba(206,206,206,0.8);
+}
+
 .item:last-child {
     margin-bottom: 0;
 }
 
 .activeLink {
-    color: #f0932b;
+    color: aqua;
     text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.8);
     letter-spacing: 1px;
     transition: letter-spacing .2s ease-in-out;

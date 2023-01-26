@@ -19,7 +19,7 @@ a {
 .main-page {
   display: grid;
   position: relative;
-  grid-template-rows: 100px 1fr;
+  grid-template-rows: 70px 1fr;
   grid-template-columns: 3fr 9fr;
   grid-template-areas:
     "headerTop headerTop"

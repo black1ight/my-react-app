@@ -23,8 +23,15 @@ input::placeholder {
 }
 
 .PostBtn {
+    cursor: pointer;
     width: 15%;
     height: 30px;
     border: none;
     border-radius: 5px;
+    transition: all .1s ease-in;
+}
+
+.PostBtn:hover {
+    background-color: #fff;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.8);
 }

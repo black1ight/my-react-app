@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import Style from './Dialogs.module.css';
-import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/state";
+import { sendMessageCreator, updateNewMessageBodyCreator } from "../../redux/dialogs-reducer";
 
 const setActive = ({ isActive }) => isActive ? Style.activeLink : 'white';
 
@@ -53,16 +53,14 @@ const Dialogs = (props) => {
         )
     })
 
-    let newMessageElement = React.createRef()
-
     let sendMessage = () => {
 
         props.dispatch(sendMessageCreator())
     }
 
-    let onMessageChange = () => {
+    let onMessageChange = (e) => {
 
-        let newBody = newMessageElement.current.value
+        let newBody = e.target.value
         let action = updateNewMessageBodyCreator(newBody)
         props.dispatch(action)
     }
@@ -80,7 +78,7 @@ const Dialogs = (props) => {
                     {messagesElements}
                 </ul>
                 <div className={Style.form}>
-                    <textarea onChange={onMessageChange} value={props.newMessageBody} className={Style.textArea} ref={newMessageElement}/>
+                    <textarea onChange={onMessageChange} value={props.newMessageBody} className={Style.textArea} />
                     <button onClick={sendMessage} className={Style.button}>send</button>
                 </div>
             </div>

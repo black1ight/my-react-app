@@ -1,8 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
-
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
-const SEND_MESSAGE = 'SEND_MESSAGE'
+import profileReducer from "./profile-reducer"
+import dialogsReducer from "./dialogs-reducer"
 
 let store = {
 
@@ -52,68 +49,21 @@ let store = {
   getState() {
     return this._state
   },
+  subscribe(observer) {
+    this._callSubscriber = observer
+  },
   _callSubscriber() {
     console.log('state changed')
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: this._state.profilePage.posts.length + 1,
-        message: this._state.profilePage.newPostText,
-        likesCount: '0'
-      }
-      this._state.profilePage.posts.push(newPost)
-      this._state.profilePage.newPostText = ''
 
-      this._callSubscriber(this._state)
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
 
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.text
-      this._callSubscriber(this._state)
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action)
 
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      debugger
-      this._state.dialogsPage.newMessageBody = action.text
-      this._callSubscriber(this._state)
-
-    } else if (action.type === SEND_MESSAGE) {
-      let newMessage = {
-        message: this._state.dialogsPage.newMessageBody,
-        id: this._state.dialogsPage.messages.length + 1,
-        author: 'you'
-      }
-      this._state.dialogsPage.messages.push(newMessage)
-      this._state.dialogsPage.newMessageBody = ''
-
-      this._callSubscriber(this._state)
-    }
-  },
-
-  subscribe(observer) {
-    this._callSubscriber = observer
+    this._callSubscriber(this._state)
   }
-
-}
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
-
-export const updateNewPostTextActionCreator = (newText) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        text: newText
-    }
-}
-
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
-
-export const updateNewMessageBodyCreator = (newBody) => {
-  
-    return {
-        type: UPDATE_NEW_MESSAGE_BODY,
-        text: newBody
-    }
 }
 
 export default store

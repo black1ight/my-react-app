@@ -10,8 +10,12 @@
   color: #fff;
 }
 
+.Item:hover {
+  text-shadow: 0px 0px 4px rgba(206,206,206,0.8);
+}
+
 .activeLink {
-  text-shadow: 0px 0px 8px rgba(206,206,206,0.8);
+  text-shadow: 0px 0px 4px rgba(206,206,206,0.8);
   color: aqua;
   letter-spacing: 3px;
   transition: letter-spacing .2s ease-in-out;
