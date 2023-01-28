@@ -8,17 +8,18 @@
     justify-content: space-between;
 }
 
-input {
+textarea {
     width: 80%;
-    height: 30px;
+    height: 50px;
     margin: 0 20px 20px 0;
     border: none;
     outline: none;
-    padding: 0 10px;
+    padding: 5px 10px;
     border-radius: 5px;
+    resize: none;
 }
 
-input::placeholder {
+textarea::placeholder {
     font-style: italic;
 }
 
