@@ -7,7 +7,7 @@ import MyPostsContainer from './MyPosts/MyPostsContainer';
 const Profile = (props) => {
     return <div className={ProfileStyle.profile}>
         <img src={profileImg} alt="" />
-        <MyPostsContainer store={props.store}/>
+        <MyPostsContainer />
         
     </div>
 }

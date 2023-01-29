@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-
+import messageIcon from './../../img/serge.jpg'
+import myMessageIcon from './../../img/post.jpg'
 import Style from './Dialogs.module.css';
 
 
@@ -21,7 +22,8 @@ const DialogsItem = (props) => {
 const Message = (props) => {
     return (
         <li className={Style.messageItem}>
-            <NavLink className={Style.text}>{props.message}</NavLink>
+            
+            <NavLink className={Style.text}><img src={messageIcon} className={Style.icon} alt='messageIcon'/>{props.message}</NavLink>
         </li>
     )
 
@@ -30,7 +32,7 @@ const Message = (props) => {
 const MyMessage = (props) => {
     return (
         <li className={Style.myMessageItem}>
-            <NavLink className={Style.text}>{props.message}</NavLink>
+            <NavLink className={Style.text}><img src={myMessageIcon} className={Style.icon} alt='messageIcon'/>{props.message}</NavLink>
         </li>
     )
 

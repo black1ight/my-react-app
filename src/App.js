@@ -19,8 +19,8 @@ function App(props) {
             <Sidebar />
             <div className='app-wrapper-content'>
               <Routes>
-                <Route path='/profile' element={<Profile store={props.store}/>} />
-                <Route path='/Dialogs/*' element={<DialogsContainer store={props.store}/>} />
+                <Route path='/profile' element={<Profile />} />
+                <Route path='/Dialogs/*' element={<DialogsContainer />} />
                 <Route path='/settings' element={<Settings />} />
                 <Route path='/news' element={<News />} />
               </Routes>
